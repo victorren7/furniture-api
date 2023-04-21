@@ -1,0 +1,1 @@
+This project is being created to support the store code base that I have created in React.
