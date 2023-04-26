@@ -10,7 +10,13 @@ const getAllFurniture = async (req, res) => {
 }
 
 const getFurniture = async (req, res) => {
-  console.log(' get furniture', req)
+
+  try {
+    console.log(' get furniture', req.body)
+    
+  } catch (error) {
+    console.log('error', error)
+  }
 }
 
 const createFurniture = async (req, res) => {

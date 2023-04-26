@@ -3,7 +3,9 @@ require('express-async-errors');
 const express = require('express');
 const connectDB = require('./database/connect');
 
-const furnitureRouter = require('./routes/furniture')
+const furnitureRouter = require('./routes/furniture');
+const notFoundMiddleware = require('./routes/middleware/not-found');
+const errorHandlerMiddleware = require('./routes/middleware/error-handler');
 
 const app = express();
 
@@ -17,6 +19,10 @@ app.get('/', (req, res) => {
 
 // route
 app.use('/api/v1/furniture', furnitureRouter)
+
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
+
 
 
 const port = process.env.PORT || 8000;
