@@ -31,10 +31,14 @@ const FurnitureSchema = new mongoose.Schema({
     type: String,
 
   },
-  productId: {
-    type: mongoose.Types.ObjectId,
-    required: true
-}
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  },
+//   productId: {
+//     type: mongoose.Types.ObjectId,
+//     required: true
+// }
 })
 
 module.exports = mongoose.model('Furniture', FurnitureSchema)
