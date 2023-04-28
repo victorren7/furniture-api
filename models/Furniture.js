@@ -4,26 +4,21 @@ const mongoose = require('mongoose')
 const FurnitureSchema = new mongoose.Schema({
   name: {
     type: String,
-    required:[true, 'Please provide type of furniture'],
+    // required:[true, 'Please provide a name for furniture'],
     minLength: 3,
     maxLength: 50,
   },
   type: {
     type: String,
-    required:[true, 'Please provide type of furniture'],
+    // required:[true, 'Please provide type of furniture'],
     minLength: 3,
     maxLength: 50,
   },
-  // brand: {
-  //   type: String,
-  //   required:[true, 'Please provide furniture brand'],
-    
-  // },
-  // img: {
-  //   data: Buffer,
-  //   contentType: String
-  // },
-  desciprtion: {
+  image: {
+    data: Buffer,
+    contentType: String
+  },
+  description: {
     type: String,
     minLength: 10
   },
@@ -35,10 +30,6 @@ const FurnitureSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
-//   productId: {
-//     type: mongoose.Types.ObjectId,
-//     required: true
-// }
 })
 
 module.exports = mongoose.model('Furniture', FurnitureSchema)

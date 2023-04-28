@@ -26,7 +26,9 @@ const getFurniture = async (req, res) => {
 }
 
 const createFurniture = async (req, res) => {
-  console.log(' create furniture', req.body)
+  console.log('  req.file', req.file)
+  console.log('  req.body', req.body)
+
   const furniture = await Furniture.create(req.body)
 
   res.status(StatusCodes.CREATED).json({furniture})
@@ -34,6 +36,8 @@ const createFurniture = async (req, res) => {
 
 const updateFurniture = async (req, res) => {
   const {id: furnitureId} = req.params
+
+  console.log('file', req.file)
   const furniture = await Furniture.findOneAndUpdate({ _id:furnitureId}, req.body, {
     new:true,
     runValidators:true
